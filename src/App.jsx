@@ -7,6 +7,9 @@ import SectorPage from './pages/SectorPage'
 import Features from './pages/Features'
 import Pricing from './pages/Pricing'
 import About from './pages/About'
+import Apps from './pages/Apps'
+import AppPage from './pages/AppPage'
+import Growth from './pages/Growth'
 
 export default function App() {
   return (
@@ -21,6 +24,9 @@ export default function App() {
             <Route path="/features" element={<Features />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
+            <Route path="/apps" element={<Apps />} />
+            <Route path="/apps/:slug" element={<AppPage />} />
+            <Route path="/growth" element={<Growth />} />
           </Routes>
         </main>
         <Footer />

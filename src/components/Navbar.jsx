@@ -7,6 +7,8 @@ const navLinks = [
   { label: 'عن ڤوم', to: '/about' },
   { label: 'القطاعات', to: '/sectors' },
   { label: 'المميزات', to: '/features' },
+  { label: 'التكاملات', to: '/apps' },
+  { label: 'برنامج نمو', to: '/growth' },
   { label: 'الأسعار', to: '/pricing' },
 ]
 
