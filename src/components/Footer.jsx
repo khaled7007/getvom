@@ -51,10 +51,10 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-sm mb-4 text-teal">الدعم</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">مركز المساعدة</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">تواصل معنا</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">الشروط والأحكام</a></li>
+              <li><Link to="/help" className="hover:text-white transition-colors">مركز المساعدة</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">تواصل معنا</Link></li>
+              <li><Link to="/privacy" className="hover:text-white transition-colors">سياسة الخصوصية</Link></li>
+              <li><Link to="/terms" className="hover:text-white transition-colors">الشروط والأحكام</Link></li>
             </ul>
             <div className="mt-6">
               <p className="text-xs text-gray-500 mb-2">متوفر على</p>

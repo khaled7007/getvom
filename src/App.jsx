@@ -11,6 +11,11 @@ import About from './pages/About'
 import Apps from './pages/Apps'
 import AppPage from './pages/AppPage'
 import Growth from './pages/Growth'
+import Contact from './pages/Contact'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+import Help from './pages/Help'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
@@ -28,6 +33,11 @@ export default function App() {
             <Route path="/apps" element={<Apps />} />
             <Route path="/apps/:slug" element={<AppPage />} />
             <Route path="/growth" element={<Growth />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
