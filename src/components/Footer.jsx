@@ -121,12 +121,12 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>© {new Date().getFullYear()} ڤوم. جميع الحقوق محفوظة.</p>
-          <div className="flex items-center gap-2">
-            <svg viewBox="0 0 40 40" className="w-5 h-5 opacity-70" fill="none">
-              <circle cx="20" cy="20" r="20" fill="#006340" />
-              <path d="M16 20l3 3 5-6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span className="text-gray-400">معتمد من هيئة الزكاة والضريبة والجمارك — المرحلة الثانية</span>
+          <div className="flex items-center gap-3">
+            <img src="/zatca-badge.svg" alt="هيئة الزكاة والضريبة والجمارك" className="h-9 w-9 opacity-80" />
+            <div>
+              <p className="text-gray-400 text-xs leading-snug">هيئة الزكاة والضريبة والجمارك</p>
+              <p className="text-gray-500 text-[10px] leading-snug">المرحلة الثانية للفوترة الإلكترونية</p>
+            </div>
           </div>
         </div>
 
