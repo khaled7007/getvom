@@ -14,7 +14,7 @@ const navLinks = [
 
 const supportLinks = [
   { icon: <BookOpen size={16} />, label: 'المدونة', to: '/blog', desc: 'مقالات ونصائح محاسبية' },
-  { icon: <Newspaper size={16} />, label: 'الأخبار', to: '/blog', desc: 'آخر أخبار ڤوم' },
+  { icon: <Newspaper size={16} />, label: 'الأخبار', to: '/news', desc: 'آخر أخبار ڤوم' },
   { icon: <FileText size={16} />, label: 'برنامج المحاسبة', to: '/accounting-software', desc: 'الدليل الشامل 2025' },
   { icon: <HelpCircle size={16} />, label: 'الأسئلة الشائعة', to: '/help', desc: 'إجابات لأكثر الأسئلة' },
   { icon: <Receipt size={16} />, label: 'الفوترة الإلكترونية', to: '/einvoicing', desc: 'امتثال زاتكا الكامل' },
