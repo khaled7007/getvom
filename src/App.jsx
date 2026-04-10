@@ -15,6 +15,10 @@ import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Help from './pages/Help'
+import Blog from './pages/Blog'
+import EInvoicing from './pages/EInvoicing'
+import StudentPackage from './pages/StudentPackage'
+import ApiPage from './pages/ApiPage'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -37,6 +41,10 @@ export default function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/help" element={<Help />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/einvoicing" element={<EInvoicing />} />
+            <Route path="/student" element={<StudentPackage />} />
+            <Route path="/api" element={<ApiPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

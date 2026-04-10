@@ -265,25 +265,42 @@ function Hero() {
 }
 
 /* ========================================
-   STATS
+   STATS — Bold Dark
    ======================================== */
 function StatsBar() {
   const stats = [
-    { label: 'مستخدم نشط', value: 4000, suffix: '+' },
-    { label: 'قطاع مدعوم', value: 23, suffix: '' },
-    { label: 'فاتورة صادرة', value: 500000, suffix: '+' },
-    { label: 'تقييم متوسط', value: 4.8, suffix: '/5' },
+    { value: 4000,   suffix: '+',  label: 'صاحب عمل يثق بـ ڤوم', sub: 'مستخدم نشط',   delay: 0   },
+    { value: 23,     suffix: '',   label: 'قطاع تجاري مدعوم',     sub: 'من المطعم للمقاول', delay: 100 },
+    { value: 500000, suffix: '+',  label: 'فاتورة إلكترونية',     sub: 'صادرة حتى اليوم',  delay: 200 },
+    { value: 4.8,    suffix: '/5', label: 'تقييم متوسط',          sub: 'من العملاء',        delay: 300 },
   ]
+
+  const [ref, visible] = useInView(0.15)
+
   return (
-    <section className="bg-white py-12 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="text-3xl md:text-4xl font-black text-teal mb-1">
+    <section className="bg-white py-20 relative overflow-hidden border-b border-gray-100">
+      <div ref={ref} className="relative max-w-5xl mx-auto px-8 sm:px-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-4">
+          {stats.map((s, i) => (
+            <div
+              key={s.label}
+              className={`flex flex-col items-center text-center transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              style={{ transitionDelay: `${s.delay}ms` }}
+            >
+              {/* big number */}
+              <div
+                className={`font-black leading-none mb-3 ${i % 2 === 0 ? 'text-teal' : 'text-orange'}`}
+                style={{ fontSize: 'clamp(2.4rem, 4vw, 3.8rem)' }}
+              >
                 <Counter target={s.value} suffix={s.suffix} />
               </div>
-              <div className="text-gray-500 text-sm">{s.label}</div>
+
+              {/* label */}
+              <p className="text-gray-800 font-bold text-sm mb-1">{s.label}</p>
+              <p className="text-gray-400 text-xs">{s.sub}</p>
+
+              {/* accent line */}
+              <div className={`mt-4 h-0.5 w-8 rounded-full ${i % 2 === 0 ? 'bg-teal/40' : 'bg-orange/40'}`} />
             </div>
           ))}
         </div>

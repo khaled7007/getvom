@@ -53,6 +53,10 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-gray-400">
               <li><Link to="/help" className="hover:text-white transition-colors">مركز المساعدة</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">تواصل معنا</Link></li>
+              <li><Link to="/blog" className="hover:text-white transition-colors">المدونة</Link></li>
+              <li><Link to="/einvoicing" className="hover:text-white transition-colors">الفوترة الإلكترونية</Link></li>
+              <li><Link to="/student" className="hover:text-white transition-colors">باقة الطلاب</Link></li>
+              <li><Link to="/api" className="hover:text-white transition-colors">ربط عبر API</Link></li>
               <li><Link to="/privacy" className="hover:text-white transition-colors">سياسة الخصوصية</Link></li>
               <li><Link to="/terms" className="hover:text-white transition-colors">الشروط والأحكام</Link></li>
             </ul>
