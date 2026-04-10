@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ContactWidget from './components/ContactWidget'
 import Home from './pages/Home'
 import Sectors from './pages/Sectors'
 import SectorPage from './pages/SectorPage'
@@ -30,6 +31,7 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+        <ContactWidget />
       </div>
     </BrowserRouter>
   )
