@@ -16,6 +16,7 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Help from './pages/Help'
 import Blog from './pages/Blog'
+import AccountingSoftware from './pages/AccountingSoftware'
 import EInvoicing from './pages/EInvoicing'
 import StudentPackage from './pages/StudentPackage'
 import ApiPage from './pages/ApiPage'
@@ -42,6 +43,7 @@ export default function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/help" element={<Help />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/accounting-software" element={<AccountingSoftware />} />
             <Route path="/einvoicing" element={<EInvoicing />} />
             <Route path="/student" element={<StudentPackage />} />
             <Route path="/api" element={<ApiPage />} />
