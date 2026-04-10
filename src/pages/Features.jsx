@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronLeft } from 'lucide-react'
 
@@ -15,13 +15,21 @@ const sections = [
   { id: 'general',     label: 'مميزات عامة' },
 ]
 
+const mockupBgs = {
+  sales:       'linear-gradient(135deg, #d4f3ee 0%, #f0fbf9 100%)',
+  purchases:   'linear-gradient(135deg, #ffe8cc 0%, #fff8f0 100%)',
+  products:    'linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%)',
+  accounting:  'linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%)',
+  hr:          'linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%)',
+  templates:   'linear-gradient(135deg, #fef9c3 0%, #fefce8 100%)',
+  permissions: 'linear-gradient(135deg, #f1f5f9 0%, #f8fafc 100%)',
+}
+
 const sectionData = [
   {
     id: 'sales',
     icon: '🧾',
     title: 'إدارة المبيعات والفوترة الإلكترونية',
-    mockupBg: 'from-teal/10 to-teal/5',
-    mockupIcon: '📊',
     points: [
       { icon: '🟢', text: 'إنشاء فواتير مبيعات معتمدة من زاتكا (المرحلة الأولى والثانية) بكل سهولة' },
       { icon: '🟢', text: 'ربط المبيعات تلقائياً بدليل الحسابات دون أي إدخال يدوي' },
@@ -34,8 +42,6 @@ const sectionData = [
     id: 'purchases',
     icon: '🛒',
     title: 'إدارة المشتريات والمصروفات',
-    mockupBg: 'from-orange/10 to-orange/5',
-    mockupIcon: '📋',
     points: [
       { icon: '🟠', text: 'تسجيل الموردين وإدارتهم من واجهة واحدة بشكل سهل وسريع' },
       { icon: '🟠', text: 'يمكنك تسجيل المشتريات والمصروفات مع ربطها بحسابات الموردين تلقائياً' },
@@ -47,8 +53,6 @@ const sectionData = [
     id: 'products',
     icon: '📦',
     title: 'تسجيل المنتجات / الكميات',
-    mockupBg: 'from-purple-100 to-purple-50',
-    mockupIcon: '🗂️',
     points: [
       { icon: '🟣', text: 'تسجيل المنتجات والخدمات بعدد غير محدود مع تصنيفات مرنة' },
       { icon: '🟣', text: 'تحديد الأسعار الأساسية لكل منتج مع إمكانية إضافة أسعار خاصة للعملاء' },
@@ -60,8 +64,6 @@ const sectionData = [
     id: 'accounting',
     icon: '📈',
     title: 'المحاسبة والأصول',
-    mockupBg: 'from-blue-100 to-blue-50',
-    mockupIcon: '📉',
     points: [
       { icon: '🔵', text: 'دليل حسابات كامل وقابل للتخصيص بدون حدود مع ترحيل تلقائي للقيود' },
       { icon: '🔵', text: 'يمكن استيراد الأرصدة المحاسبية السابقة للسنوات الماضية' },
@@ -74,8 +76,6 @@ const sectionData = [
     id: 'hr',
     icon: '👥',
     title: 'إدارة الموارد البشرية',
-    mockupBg: 'from-green-100 to-green-50',
-    mockupIcon: '🧑‍💼',
     points: [
       { icon: '🟢', text: 'تسجيل الموظفين بعدد غير محدود مع بياناتهم الكاملة' },
       { icon: '🟢', text: 'إصدار مسيرات رواتب شهرية بتاريخ الدفع تلقائياً' },
@@ -87,8 +87,6 @@ const sectionData = [
     id: 'templates',
     icon: '🖨️',
     title: 'قوالب الفواتير',
-    mockupBg: 'from-yellow-100 to-yellow-50',
-    mockupIcon: '📄',
     points: [
       { icon: '🟡', text: '+50 قالب فاتورة مختلف يناسب جميع القطاعات' },
       { icon: '🟡', text: 'إضافة شعار شركتك ومعلوماتها البنكية على كل فاتورة' },
@@ -101,8 +99,6 @@ const sectionData = [
     id: 'permissions',
     icon: '🔐',
     title: 'الصلاحيات والمستخدمين',
-    mockupBg: 'from-gray-100 to-gray-50',
-    mockupIcon: '🛡️',
     points: [
       { icon: '⚫', text: 'إضافة عدد غير محدود من المستخدمين مع تحديد صلاحيات كل منهم' },
       { icon: '⚫', text: 'توزيع الصلاحيات بمرونة تامة: قراءة، تعديل، حذف، اعتماد' },
@@ -114,8 +110,6 @@ const sectionData = [
     id: 'apps',
     icon: '🔗',
     title: 'التطبيقات',
-    mockupBg: null,
-    mockupIcon: null,
     points: [
       { icon: '🔗', text: 'يمكن ربط هذه التطبيقات مع ڤوم لتتمكن من نقل البيعات والمشتريات بكل سهولة' },
     ],
@@ -130,8 +124,6 @@ const sectionData = [
     id: 'support',
     icon: '🎧',
     title: 'خدمة العملاء',
-    mockupBg: null,
-    mockupIcon: null,
     points: [
       { icon: '🟢', text: 'خدمة أعمال متكاملة على مدار الساعة' },
       { icon: '📘', text: 'مستندات ومقاطع مرئية لشرح جميع ميزات النظام' },
@@ -143,8 +135,7 @@ const sectionData = [
     id: 'general',
     icon: '⚡',
     title: 'مميزات عامة',
-    mockupBg: null,
-    mockupIcon: null,
+    points: [],
     cards: [
       { icon: '📱', title: 'تطبيق الجوال', desc: 'تحكم بأعمالك من أي مكان عبر تطبيق iOS و Android' },
       { icon: '☁️', title: 'سحابي بالكامل', desc: 'لا تثبيت، لا صيانة، وصول فوري من أي جهاز' },
@@ -156,31 +147,34 @@ const sectionData = [
   },
 ]
 
-function Mockup({ bg, icon }) {
+function SectionMockup({ sectionId }) {
+  const bg = mockupBgs[sectionId]
+  if (!bg) return null
   return (
-    <div className={`bg-gradient-to-br ${bg} rounded-2xl border border-gray-100 p-6 mb-8 h-52 flex flex-col gap-3`}>
-      {/* Fake browser bar */}
+    <div
+      className="rounded-2xl border border-gray-100 p-6 mb-8 h-52 flex flex-col gap-3 overflow-hidden"
+      style={{ background: bg }}
+    >
       <div className="flex items-center gap-1.5">
         <div className="w-2.5 h-2.5 rounded-full bg-red-300" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
         <div className="w-2.5 h-2.5 rounded-full bg-green-300" />
-        <div className="flex-1 bg-white/60 rounded-md h-4 mr-2" />
+        <div className="flex-1 bg-white rounded-md h-4 mr-2 opacity-60" />
       </div>
-      {/* Fake table rows */}
-      <div className="flex-1 flex flex-col gap-2">
+      <div className="flex-1 flex flex-col gap-2 overflow-hidden">
         <div className="flex gap-2">
-          <div className="w-20 h-3 bg-teal/30 rounded" />
-          <div className="w-32 h-3 bg-gray-200 rounded" />
-          <div className="w-16 h-3 bg-gray-200 rounded" />
-          <div className="w-12 h-3 bg-orange/30 rounded" />
+          <div className="w-20 h-3 rounded" style={{ background: 'rgba(25,186,163,0.35)' }} />
+          <div className="w-32 h-3 bg-white rounded opacity-70" />
+          <div className="w-16 h-3 bg-white rounded opacity-50" />
+          <div className="w-12 h-3 rounded" style={{ background: 'rgba(255,115,0,0.3)' }} />
         </div>
-        {[...Array(4)].map((_, i) => (
+        {[0, 1, 2, 3].map((i) => (
           <div key={i} className="flex gap-2 items-center">
-            <div className="w-3 h-3 rounded border border-gray-300 flex-shrink-0" />
-            <div className="w-24 h-2.5 bg-gray-200 rounded" />
-            <div className="w-28 h-2.5 bg-gray-100 rounded" />
-            <div className="w-14 h-2.5 bg-gray-100 rounded" />
-            <div className="w-10 h-2.5 bg-teal/20 rounded mr-auto" />
+            <div className="w-3 h-3 rounded border border-gray-300 flex-shrink-0 bg-white opacity-70" />
+            <div className="w-24 h-2.5 bg-white rounded opacity-60" />
+            <div className="w-28 h-2.5 bg-white rounded opacity-40" />
+            <div className="w-14 h-2.5 bg-white rounded opacity-30" />
+            <div className="w-10 h-2.5 rounded mr-auto" style={{ background: 'rgba(25,186,163,0.25)' }} />
           </div>
         ))}
       </div>
@@ -190,26 +184,24 @@ function Mockup({ bg, icon }) {
 
 export default function Features() {
   const [activeId, setActiveId] = useState('sales')
-  const observerRef = useRef(null)
 
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveId(entry.target.id)
-        })
-      },
-      { rootMargin: '-30% 0px -60% 0px' }
-    )
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id)
-      if (el) observerRef.current.observe(el)
-    })
-    return () => observerRef.current?.disconnect()
+    const handleScroll = () => {
+      const offsets = sections.map(({ id }) => {
+        const el = document.getElementById(id)
+        if (!el) return { id, top: Infinity }
+        return { id, top: Math.abs(el.getBoundingClientRect().top - 120) }
+      })
+      const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b))
+      setActiveId(closest.id)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
@@ -217,7 +209,10 @@ export default function Features() {
 
       {/* Hero */}
       <div className="hero-gradient pt-28 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '36px 36px' }}
+        />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
             ميزات تقدمها ڤوم
@@ -238,19 +233,18 @@ export default function Features() {
           {/* Main content */}
           <div className="flex-1 min-w-0">
             {sectionData.map((sec) => (
-              <section
-                key={sec.id}
-                id={sec.id}
-                className="mb-20 scroll-mt-24"
-              >
+              <section key={sec.id} id={sec.id} className="mb-20" style={{ scrollMarginTop: '6rem' }}>
+
                 {/* Section header */}
                 <div className="flex items-center gap-3 mb-6 justify-center">
-                  <span className="text-3xl bg-orange/10 w-12 h-12 rounded-xl flex items-center justify-center">{sec.icon}</span>
+                  <span className="text-3xl bg-orange-50 w-12 h-12 rounded-xl flex items-center justify-center border border-orange-100">
+                    {sec.icon}
+                  </span>
                   <h2 className="text-2xl font-black text-gray-900">{sec.title}</h2>
                 </div>
 
                 {/* Mockup */}
-                {sec.mockupBg && <Mockup bg={sec.mockupBg} icon={sec.mockupIcon} />}
+                <SectionMockup sectionId={sec.id} />
 
                 {/* Apps logos */}
                 {sec.apps && (
@@ -281,14 +275,17 @@ export default function Features() {
                 )}
 
                 {/* Bullet points */}
-                <ul className="space-y-3">
-                  {sec.points.map((p, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="text-lg flex-shrink-0 mt-0.5">{p.icon}</span>
-                      <p className="text-gray-700 text-sm leading-relaxed">{p.text}</p>
-                    </li>
-                  ))}
-                </ul>
+                {sec.points.length > 0 && (
+                  <ul className="space-y-3">
+                    {sec.points.map((p, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="text-lg flex-shrink-0 mt-0.5">{p.icon}</span>
+                        <p className="text-gray-700 text-sm leading-relaxed">{p.text}</p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
               </section>
             ))}
           </div>
@@ -298,7 +295,7 @@ export default function Features() {
             <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4 text-right">
               ميزات تقدمها ڤوم
             </p>
-            <nav className="space-y-1">
+            <nav className="space-y-0.5">
               {sections.map((s) => (
                 <button
                   key={s.id}
@@ -310,11 +307,13 @@ export default function Features() {
                   }`}
                 >
                   {s.label}
-                  <span className={`w-2.5 h-2.5 rounded-full flex-shrink-0 border-2 transition-all ${
-                    activeId === s.id
-                      ? 'bg-teal border-teal'
-                      : 'bg-transparent border-gray-300'
-                  }`} />
+                  <span
+                    className="w-2.5 h-2.5 rounded-full flex-shrink-0 border-2 transition-all"
+                    style={{
+                      backgroundColor: activeId === s.id ? '#19BAA3' : 'transparent',
+                      borderColor: activeId === s.id ? '#19BAA3' : '#d1d5db',
+                    }}
+                  />
                 </button>
               ))}
             </nav>
@@ -330,7 +329,7 @@ export default function Features() {
           <p className="text-white/70 mb-8 text-lg">٣٠ يوم مجاناً، بدون بطاقة ائتمان</p>
           <a
             href="https://app.getvom.com/register"
-            className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black text-xl px-10 py-5 rounded-2xl shadow-2xl shadow-orange/40 transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black text-xl px-10 py-5 rounded-2xl shadow-2xl transition-all hover:scale-105"
           >
             ابدأ تجربتك المجانية
             <ChevronLeft size={24} />
