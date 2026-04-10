@@ -1,117 +1,131 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft } from 'lucide-react'
+import {
+  Receipt, ShoppingCart, Package, BarChart3, Users,
+  FileImage, Shield, Layers, Headphones, Zap,
+  Check, ChevronLeft, ArrowLeft,
+} from 'lucide-react'
 
+/* ─── Section meta ─────────────────────────────────────────── */
 const sections = [
-  { id: 'sales',       label: 'إدارة المبيعات والفوترة الإلكترونية' },
-  { id: 'purchases',   label: 'إدارة المشتريات والمصروفات' },
-  { id: 'products',    label: 'تسجيل المنتجات / الكميات' },
-  { id: 'accounting',  label: 'المحاسبة والأصول' },
-  { id: 'hr',          label: 'إدارة الموارد البشرية' },
-  { id: 'templates',   label: 'قوالب الفواتير' },
-  { id: 'permissions', label: 'الصلاحيات والمستخدمين' },
-  { id: 'apps',        label: 'التطبيقات' },
-  { id: 'support',     label: 'خدمة العملاء' },
-  { id: 'general',     label: 'مميزات عامة' },
-]
-
-const mockupBgs = {
-  sales:       'linear-gradient(135deg, #d4f3ee 0%, #f0fbf9 100%)',
-  purchases:   'linear-gradient(135deg, #ffe8cc 0%, #fff8f0 100%)',
-  products:    'linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%)',
-  accounting:  'linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%)',
-  hr:          'linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%)',
-  templates:   'linear-gradient(135deg, #fef9c3 0%, #fefce8 100%)',
-  permissions: 'linear-gradient(135deg, #f1f5f9 0%, #f8fafc 100%)',
-}
-
-const sectionData = [
   {
     id: 'sales',
-    icon: '🧾',
-    title: 'إدارة المبيعات والفوترة الإلكترونية',
+    label: 'المبيعات والفوترة',
+    fullLabel: 'إدارة المبيعات والفوترة الإلكترونية',
+    Icon: Receipt,
+    accent: '#19BAA3',
+    accentLight: '#f0fbf9',
+    accentMid: '#d4f3ee',
     points: [
-      { icon: '🟢', text: 'إنشاء فواتير مبيعات معتمدة من زاتكا (المرحلة الأولى والثانية) بكل سهولة' },
-      { icon: '🟢', text: 'ربط المبيعات تلقائياً بدليل الحسابات دون أي إدخال يدوي' },
-      { icon: '🟢', text: 'إدارة عروض الأسعار وتحويلها إلى فواتير بنقرة واحدة' },
-      { icon: '🟢', text: 'تتبع المستحقات والمدفوعات لكل عميل مع تذكيرات تلقائية' },
-      { icon: '🟢', text: 'دعم عملاء متعددين وفئات سعرية مختلفة في نفس الوقت' },
+      'إنشاء فواتير مبيعات معتمدة من زاتكا (المرحلة الأولى والثانية)',
+      'ربط المبيعات تلقائياً بدليل الحسابات دون أي إدخال يدوي',
+      'إدارة عروض الأسعار وتحويلها إلى فواتير بنقرة واحدة',
+      'تتبع المستحقات والمدفوعات لكل عميل مع تذكيرات تلقائية',
+      'دعم عملاء متعددين وفئات سعرية مختلفة في نفس الوقت',
     ],
   },
   {
     id: 'purchases',
-    icon: '🛒',
-    title: 'إدارة المشتريات والمصروفات',
+    label: 'المشتريات',
+    fullLabel: 'إدارة المشتريات والمصروفات',
+    Icon: ShoppingCart,
+    accent: '#FF7300',
+    accentLight: '#fff8f0',
+    accentMid: '#ffe8cc',
     points: [
-      { icon: '🟠', text: 'تسجيل الموردين وإدارتهم من واجهة واحدة بشكل سهل وسريع' },
-      { icon: '🟠', text: 'يمكنك تسجيل المشتريات والمصروفات مع ربطها بحسابات الموردين تلقائياً' },
-      { icon: '🟠', text: 'إضافة الكميات للمخزون مباشرة عند تسجيل فاتورة الشراء' },
-      { icon: '🟠', text: 'تتبع حالة السداد للموردين مع تنبيهات عند استحقاق الدفع' },
+      'تسجيل الموردين وإدارتهم من واجهة واحدة بشكل سهل وسريع',
+      'تسجيل المشتريات والمصروفات مع ربطها بحسابات الموردين تلقائياً',
+      'إضافة الكميات للمخزون مباشرة عند تسجيل فاتورة الشراء',
+      'تتبع حالة السداد للموردين مع تنبيهات عند استحقاق الدفع',
     ],
   },
   {
     id: 'products',
-    icon: '📦',
-    title: 'تسجيل المنتجات / الكميات',
+    label: 'المنتجات',
+    fullLabel: 'تسجيل المنتجات والكميات',
+    Icon: Package,
+    accent: '#8B5CF6',
+    accentLight: '#faf5ff',
+    accentMid: '#ede9fe',
     points: [
-      { icon: '🟣', text: 'تسجيل المنتجات والخدمات بعدد غير محدود مع تصنيفات مرنة' },
-      { icon: '🟣', text: 'تحديد الأسعار الأساسية لكل منتج مع إمكانية إضافة أسعار خاصة للعملاء' },
-      { icon: '🟣', text: 'تتبع الكميات والمخزون مع تنبيهات عند نفاد المخزون' },
-      { icon: '🟣', text: 'إضافة الوحدات والتحويل بينها (كرتون، قطعة، كيلو...)' },
+      'تسجيل المنتجات والخدمات بعدد غير محدود مع تصنيفات مرنة',
+      'تحديد الأسعار الأساسية لكل منتج مع إمكانية أسعار خاصة للعملاء',
+      'تتبع الكميات والمخزون مع تنبيهات عند نفاد المخزون',
+      'إضافة الوحدات والتحويل بينها (كرتون، قطعة، كيلو...)',
     ],
   },
   {
     id: 'accounting',
-    icon: '📈',
-    title: 'المحاسبة والأصول',
+    label: 'المحاسبة',
+    fullLabel: 'المحاسبة والأصول',
+    Icon: BarChart3,
+    accent: '#2563EB',
+    accentLight: '#eff6ff',
+    accentMid: '#dbeafe',
     points: [
-      { icon: '🔵', text: 'دليل حسابات كامل وقابل للتخصيص بدون حدود مع ترحيل تلقائي للقيود' },
-      { icon: '🔵', text: 'يمكن استيراد الأرصدة المحاسبية السابقة للسنوات الماضية' },
-      { icon: '🔵', text: 'تقارير مالية كاملة: قائمة الدخل، الميزانية العمومية، التدفقات النقدية' },
-      { icon: '🔵', text: 'مراكز تكلفة غير محدودة لتتبع الأداء المالي لكل مشروع أو فرع' },
-      { icon: '🔵', text: 'إدارة الأصول الثابتة وحساب الاستهلاك تلقائياً' },
+      'دليل حسابات كامل وقابل للتخصيص بلا حدود مع ترحيل تلقائي للقيود',
+      'استيراد الأرصدة المحاسبية السابقة للسنوات الماضية',
+      'تقارير مالية كاملة: قائمة الدخل، الميزانية، التدفقات النقدية',
+      'مراكز تكلفة غير محدودة لكل مشروع أو فرع',
+      'إدارة الأصول الثابتة وحساب الاستهلاك تلقائياً',
     ],
   },
   {
     id: 'hr',
-    icon: '👥',
-    title: 'إدارة الموارد البشرية',
+    label: 'الموارد البشرية',
+    fullLabel: 'إدارة الموارد البشرية',
+    Icon: Users,
+    accent: '#16A34A',
+    accentLight: '#f0fdf4',
+    accentMid: '#dcfce7',
     points: [
-      { icon: '🟢', text: 'تسجيل الموظفين بعدد غير محدود مع بياناتهم الكاملة' },
-      { icon: '🟢', text: 'إصدار مسيرات رواتب شهرية بتاريخ الدفع تلقائياً' },
-      { icon: '🟢', text: 'احتساب البدلات والخصومات والمكافآت بشكل آلي' },
-      { icon: '🟢', text: 'تسجيل الإجازات وتتبع رصيد كل موظف' },
+      'تسجيل الموظفين بعدد غير محدود مع بياناتهم الكاملة',
+      'إصدار مسيرات رواتب شهرية بتاريخ الدفع تلقائياً',
+      'احتساب البدلات والخصومات والمكافآت بشكل آلي',
+      'تسجيل الإجازات وتتبع رصيد كل موظف',
     ],
   },
   {
     id: 'templates',
-    icon: '🖨️',
-    title: 'قوالب الفواتير',
+    label: 'قوالب الفواتير',
+    fullLabel: 'قوالب الفواتير',
+    Icon: FileImage,
+    accent: '#D97706',
+    accentLight: '#fffbeb',
+    accentMid: '#fde68a',
     points: [
-      { icon: '🟡', text: '+50 قالب فاتورة مختلف يناسب جميع القطاعات' },
-      { icon: '🟡', text: 'إضافة شعار شركتك ومعلوماتها البنكية على كل فاتورة' },
-      { icon: '🟡', text: 'تخصيص ألوان وخطوط القوالب لتتوافق مع هوية علامتك التجارية' },
-      { icon: '🟡', text: 'إضافة الشروط والأحكام وبيانات المدفوعات لكل قالب' },
-      { icon: '🟡', text: 'طباعة ومشاركة الفواتير مباشرة من التطبيق' },
+      '+50 قالب فاتورة مختلف يناسب جميع القطاعات',
+      'إضافة شعار شركتك ومعلوماتها البنكية على كل فاتورة',
+      'تخصيص الألوان والخطوط لتوافق هوية علامتك التجارية',
+      'إضافة الشروط والأحكام وبيانات المدفوعات لكل قالب',
+      'طباعة ومشاركة الفواتير مباشرة من التطبيق',
     ],
   },
   {
     id: 'permissions',
-    icon: '🔐',
-    title: 'الصلاحيات والمستخدمين',
+    label: 'الصلاحيات',
+    fullLabel: 'الصلاحيات والمستخدمين',
+    Icon: Shield,
+    accent: '#475569',
+    accentLight: '#f8fafc',
+    accentMid: '#e2e8f0',
     points: [
-      { icon: '⚫', text: 'إضافة عدد غير محدود من المستخدمين مع تحديد صلاحيات كل منهم' },
-      { icon: '⚫', text: 'توزيع الصلاحيات بمرونة تامة: قراءة، تعديل، حذف، اعتماد' },
-      { icon: '⚫', text: 'تقييد الوصول لبعض الحسابات والتقارير المالية الحساسة' },
-      { icon: '⚫', text: 'سجل نشاط كامل يوضح كل عملية قام بها كل مستخدم' },
+      'إضافة عدد غير محدود من المستخدمين مع تحديد صلاحيات كل منهم',
+      'توزيع الصلاحيات بمرونة تامة: قراءة، تعديل، حذف، اعتماد',
+      'تقييد الوصول لبعض الحسابات والتقارير المالية الحساسة',
+      'سجل نشاط كامل يوضح كل عملية قام بها كل مستخدم',
     ],
   },
   {
     id: 'apps',
-    icon: '🔗',
-    title: 'التطبيقات',
+    label: 'التطبيقات',
+    fullLabel: 'التطبيقات المتكاملة',
+    Icon: Layers,
+    accent: '#0891B2',
+    accentLight: '#ecfeff',
+    accentMid: '#cffafe',
     points: [
-      { icon: '🔗', text: 'يمكن ربط هذه التطبيقات مع ڤوم لتتمكن من نقل البيعات والمشتريات بكل سهولة' },
+      'ربط هذه التطبيقات مع ڤوم لنقل المبيعات والمشتريات بسهولة تامة',
     ],
     apps: [
       { name: 'مرن', logo: '/logos/marn.png', to: '/apps/marn' },
@@ -122,90 +136,133 @@ const sectionData = [
   },
   {
     id: 'support',
-    icon: '🎧',
-    title: 'خدمة العملاء',
+    label: 'خدمة العملاء',
+    fullLabel: 'خدمة العملاء',
+    Icon: Headphones,
+    accent: '#DB2777',
+    accentLight: '#fdf2f8',
+    accentMid: '#fce7f3',
     points: [
-      { icon: '🟢', text: 'خدمة أعمال متكاملة على مدار الساعة' },
-      { icon: '📘', text: 'مستندات ومقاطع مرئية لشرح جميع ميزات النظام' },
-      { icon: '🎓', text: 'تدريب مجاني عند البدء لضمان الاستخدام الصحيح' },
-      { icon: '🔄', text: 'تحديثات مستمرة ومجانية دون أي تكاليف إضافية' },
+      'خدمة أعمال متكاملة على مدار الساعة',
+      'مستندات ومقاطع مرئية لشرح جميع ميزات النظام',
+      'تدريب مجاني عند البدء لضمان الاستخدام الصحيح',
+      'تحديثات مستمرة ومجانية دون أي تكاليف إضافية',
     ],
   },
   {
     id: 'general',
-    icon: '⚡',
-    title: 'مميزات عامة',
+    label: 'مميزات عامة',
+    fullLabel: 'مميزات عامة',
+    Icon: Zap,
+    accent: '#19BAA3',
+    accentLight: '#f0fbf9',
+    accentMid: '#d4f3ee',
     points: [],
     cards: [
-      { icon: '📱', title: 'تطبيق الجوال', desc: 'تحكم بأعمالك من أي مكان عبر تطبيق iOS و Android' },
-      { icon: '☁️', title: 'سحابي بالكامل', desc: 'لا تثبيت، لا صيانة، وصول فوري من أي جهاز' },
-      { icon: '📊', title: 'تقارير مفصّلة', desc: 'تقارير مالية شاملة بالتفصيل لاتخاذ قرارات أفضل' },
-      { icon: '🔒', title: 'أمان عالي', desc: 'تشفير البيانات ونسخ احتياطية يومية تلقائية' },
-      { icon: '🌐', title: 'دعم اللغتين', desc: 'واجهة عربية وإنجليزية كاملة مع دعم RTL' },
-      { icon: '⚙️', title: 'تخصيص كامل', desc: 'خصّص النظام ليناسب طبيعة عملك تماماً' },
+      { Icon: Zap,         title: 'تطبيق الجوال',   desc: 'تحكم بأعمالك من أي مكان عبر تطبيق iOS و Android' },
+      { Icon: Layers,      title: 'سحابي بالكامل',   desc: 'لا تثبيت، لا صيانة، وصول فوري من أي جهاز' },
+      { Icon: BarChart3,   title: 'تقارير مفصّلة',   desc: 'تقارير مالية شاملة بالتفصيل لاتخاذ قرارات أفضل' },
+      { Icon: Shield,      title: 'أمان عالي',        desc: 'تشفير البيانات ونسخ احتياطية يومية تلقائية' },
+      { Icon: Users,       title: 'دعم اللغتين',      desc: 'واجهة عربية وإنجليزية كاملة مع دعم RTL' },
+      { Icon: Receipt,     title: 'تخصيص كامل',       desc: 'خصّص النظام ليناسب طبيعة عملك تماماً' },
     ],
   },
 ]
 
-function SectionMockup({ sectionId }) {
-  const bg = mockupBgs[sectionId]
-  if (!bg) return null
+/* ─── Fake UI mockup ────────────────────────────────────────── */
+function SectionMockup({ accent, accentLight, accentMid }) {
   return (
     <div
-      className="rounded-2xl border border-gray-100 p-6 mb-8 h-52 flex flex-col gap-3 overflow-hidden"
-      style={{ background: bg }}
+      className="rounded-2xl border p-5 mb-10 overflow-hidden"
+      style={{ background: accentLight, borderColor: accentMid }}
     >
-      <div className="flex items-center gap-1.5">
-        <div className="w-2.5 h-2.5 rounded-full bg-red-300" />
-        <div className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
-        <div className="w-2.5 h-2.5 rounded-full bg-green-300" />
-        <div className="flex-1 bg-white rounded-md h-4 mr-2 opacity-60" />
-      </div>
-      <div className="flex-1 flex flex-col gap-2 overflow-hidden">
-        <div className="flex gap-2">
-          <div className="w-20 h-3 rounded" style={{ background: 'rgba(25,186,163,0.35)' }} />
-          <div className="w-32 h-3 bg-white rounded opacity-70" />
-          <div className="w-16 h-3 bg-white rounded opacity-50" />
-          <div className="w-12 h-3 rounded" style={{ background: 'rgba(255,115,0,0.3)' }} />
-        </div>
-        {[0, 1, 2, 3].map((i) => (
-          <div key={i} className="flex gap-2 items-center">
-            <div className="w-3 h-3 rounded border border-gray-300 flex-shrink-0 bg-white opacity-70" />
-            <div className="w-24 h-2.5 bg-white rounded opacity-60" />
-            <div className="w-28 h-2.5 bg-white rounded opacity-40" />
-            <div className="w-14 h-2.5 bg-white rounded opacity-30" />
-            <div className="w-10 h-2.5 rounded mr-auto" style={{ background: 'rgba(25,186,163,0.25)' }} />
+      {/* Browser chrome */}
+      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+        {/* Title bar */}
+        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-100">
+          <div className="flex gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+            <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
           </div>
-        ))}
+          <div className="flex-1 bg-gray-100 rounded-md h-5 mx-2" />
+        </div>
+        {/* Content area */}
+        <div className="flex" style={{ minHeight: '140px' }}>
+          {/* Left sidebar */}
+          <div className="w-36 border-l border-gray-100 p-3 flex flex-col gap-2">
+            {[80, 60, 70, 55, 65].map((w, i) => (
+              <div
+                key={i}
+                className="h-3 rounded"
+                style={{
+                  width: `${w}%`,
+                  background: i === 0 ? accent : '#f1f5f9',
+                  opacity: i === 0 ? 0.9 : 1,
+                }}
+              />
+            ))}
+          </div>
+          {/* Main panel */}
+          <div className="flex-1 p-4 flex flex-col gap-3">
+            {/* Toolbar */}
+            <div className="flex items-center justify-between">
+              <div className="flex gap-2">
+                <div className="h-6 w-16 rounded-lg" style={{ background: accent, opacity: 0.85 }} />
+                <div className="h-6 w-12 rounded-lg bg-gray-100" />
+              </div>
+              <div className="h-5 w-28 rounded bg-gray-100" />
+            </div>
+            {/* Table rows */}
+            <div className="flex flex-col gap-2 mt-1">
+              <div className="grid grid-cols-4 gap-2">
+                {['30%', '45%', '25%', '20%'].map((w, i) => (
+                  <div key={i} className="h-2.5 rounded" style={{ width: w, background: accentMid }} />
+                ))}
+              </div>
+              {[0, 1, 2].map((row) => (
+                <div key={row} className="grid grid-cols-4 gap-2 py-1 border-b border-gray-50">
+                  {[70, 85, 50, 40].map((w, i) => (
+                    <div key={i} className="h-2.5 rounded bg-gray-100" style={{ width: `${w}%` }} />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
+/* ─── Main component ────────────────────────────────────────── */
 export default function Features() {
-  const [activeId, setActiveId] = useState('sales')
+  const [activeId, setActiveId] = useState(sections[0].id)
 
   useEffect(() => {
-    const handleScroll = () => {
-      const offsets = sections.map(({ id }) => {
+    const onScroll = () => {
+      let best = sections[0].id
+      let bestDist = Infinity
+      sections.forEach(({ id }) => {
         const el = document.getElementById(id)
-        if (!el) return { id, top: Infinity }
-        return { id, top: Math.abs(el.getBoundingClientRect().top - 120) }
+        if (!el) return
+        const dist = Math.abs(el.getBoundingClientRect().top - 130)
+        if (dist < bestDist) { bestDist = dist; best = id }
       })
-      const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b))
-      setActiveId(closest.id)
+      setActiveId(best)
     }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const scrollTo = (id) => {
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  const activeSec = sections.find((s) => s.id === activeId) || sections[0]
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
 
       {/* Hero */}
       <div className="hero-gradient pt-28 pb-16 relative overflow-hidden">
@@ -214,11 +271,12 @@ export default function Features() {
           style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '36px 36px' }}
         />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-white/10 text-white/90 text-sm font-semibold px-4 py-2 rounded-full mb-6 border border-white/20">
             ميزات تقدمها ڤوم
           </div>
           <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
-            كل ما تحتاجه لإدارة <span className="text-orange-light">أعمالك بذكاء</span>
+            كل ما تحتاجه لإدارة{' '}
+            <span className="text-orange-light">أعمالك بذكاء</span>
           </h1>
           <p className="text-white/80 text-lg">
             منصة محاسبية متكاملة مصممة خصيصاً لأصحاب الأعمال في السعودية
@@ -226,97 +284,191 @@ export default function Features() {
         </div>
       </div>
 
-      {/* Content + Sidebar */}
+      {/* Body */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <div className="flex gap-10 items-start">
+        <div className="flex gap-12 items-start">
 
-          {/* Main content */}
+          {/* ── Main content ── */}
           <div className="flex-1 min-w-0">
-            {sectionData.map((sec) => (
-              <section key={sec.id} id={sec.id} className="mb-20" style={{ scrollMarginTop: '6rem' }}>
-
-                {/* Section header */}
-                <div className="flex items-center gap-3 mb-6 justify-center">
-                  <span className="text-3xl bg-orange-50 w-12 h-12 rounded-xl flex items-center justify-center border border-orange-100">
-                    {sec.icon}
-                  </span>
-                  <h2 className="text-2xl font-black text-gray-900">{sec.title}</h2>
-                </div>
-
-                {/* Mockup */}
-                <SectionMockup sectionId={sec.id} />
-
-                {/* Apps logos */}
-                {sec.apps && (
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                    {sec.apps.map((app) => (
-                      <Link
-                        key={app.name}
-                        to={app.to}
-                        className="bg-white border border-gray-100 rounded-2xl p-4 flex items-center justify-center hover:shadow-md hover:border-teal/20 transition-all h-24"
+            {sections.map((sec, idx) => {
+              const hasMockup = !sec.apps && !sec.cards
+              return (
+                <section
+                  key={sec.id}
+                  id={sec.id}
+                  style={{ scrollMarginTop: '6rem' }}
+                  className="mb-4"
+                >
+                  {/* Section card */}
+                  <div
+                    className="rounded-3xl border overflow-hidden transition-all duration-300"
+                    style={{
+                      borderColor: sec.accentMid,
+                      background: idx % 2 === 0 ? '#ffffff' : sec.accentLight,
+                    }}
+                  >
+                    {/* Section header band */}
+                    <div
+                      className="flex items-center gap-4 px-8 py-6 border-b"
+                      style={{ borderColor: sec.accentMid, background: sec.accentLight }}
+                    >
+                      <div
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm"
+                        style={{ background: sec.accent }}
                       >
-                        <img src={app.logo} alt={app.name} className="max-h-10 max-w-full object-contain" />
-                      </Link>
-                    ))}
-                  </div>
-                )}
-
-                {/* General feature cards */}
-                {sec.cards && (
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                    {sec.cards.map((card) => (
-                      <div key={card.title} className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md hover:border-teal/20 transition-all">
-                        <span className="text-3xl mb-3 block">{card.icon}</span>
-                        <h4 className="font-black text-gray-900 text-sm mb-1">{card.title}</h4>
-                        <p className="text-gray-500 text-xs leading-relaxed">{card.desc}</p>
+                        <sec.Icon size={22} color="white" strokeWidth={2} />
                       </div>
-                    ))}
+                      <div>
+                        <h2 className="text-xl font-black text-gray-900 leading-tight">
+                          {sec.fullLabel}
+                        </h2>
+                        <div className="flex items-center gap-1.5 mt-1">
+                          <div className="w-16 h-0.5 rounded-full" style={{ background: sec.accent }} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Section body */}
+                    <div className="px-8 py-8">
+
+                      {/* Mockup */}
+                      {hasMockup && (
+                        <SectionMockup
+                          accent={sec.accent}
+                          accentLight={sec.accentLight}
+                          accentMid={sec.accentMid}
+                        />
+                      )}
+
+                      {/* Apps grid */}
+                      {sec.apps && (
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                          {sec.apps.map((app) => (
+                            <Link
+                              key={app.name}
+                              to={app.to}
+                              className="bg-white border border-gray-100 rounded-2xl p-4 flex items-center justify-center hover:shadow-md transition-all h-24 group"
+                            >
+                              <img
+                                src={app.logo}
+                                alt={app.name}
+                                className="max-h-10 max-w-full object-contain group-hover:scale-105 transition-transform"
+                              />
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* General feature cards */}
+                      {sec.cards && (
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                          {sec.cards.map((card) => (
+                            <div
+                              key={card.title}
+                              className="bg-white rounded-2xl p-5 border hover:shadow-md transition-all"
+                              style={{ borderColor: sec.accentMid }}
+                            >
+                              <div
+                                className="w-9 h-9 rounded-xl flex items-center justify-center mb-3"
+                                style={{ background: sec.accentLight, border: `1px solid ${sec.accentMid}` }}
+                              >
+                                <card.Icon size={18} style={{ color: sec.accent }} strokeWidth={2} />
+                              </div>
+                              <h4 className="font-black text-gray-900 text-sm mb-1">{card.title}</h4>
+                              <p className="text-gray-500 text-xs leading-relaxed">{card.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Points */}
+                      {sec.points.length > 0 && (
+                        <ul className="space-y-3">
+                          {sec.points.map((text, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <span
+                                className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                                style={{ background: sec.accentMid }}
+                              >
+                                <Check size={11} style={{ color: sec.accent }} strokeWidth={3} />
+                              </span>
+                              <p className="text-gray-700 text-sm leading-relaxed">{text}</p>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                    </div>
                   </div>
-                )}
 
-                {/* Bullet points */}
-                {sec.points.length > 0 && (
-                  <ul className="space-y-3">
-                    {sec.points.map((p, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-lg flex-shrink-0 mt-0.5">{p.icon}</span>
-                        <p className="text-gray-700 text-sm leading-relaxed">{p.text}</p>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-              </section>
-            ))}
+                  {/* Section separator arrow */}
+                  {idx < sections.length - 1 && (
+                    <div className="flex justify-center py-4">
+                      <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center rotate-90">
+                        <ArrowLeft size={14} className="text-gray-400" />
+                      </div>
+                    </div>
+                  )}
+                </section>
+              )
+            })}
           </div>
 
-          {/* Sticky sidebar */}
-          <aside className="hidden lg:block w-60 flex-shrink-0 sticky top-24 self-start">
-            <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4 text-right">
-              ميزات تقدمها ڤوم
+          {/* ── Sticky sidebar ── */}
+          <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-24 self-start">
+            <p className="text-[11px] font-black text-gray-400 uppercase tracking-widest mb-4 text-right">
+              الأقسام
             </p>
             <nav className="space-y-0.5">
-              {sections.map((s) => (
-                <button
-                  key={s.id}
-                  onClick={() => scrollTo(s.id)}
-                  className={`w-full text-right flex items-center justify-end gap-2.5 px-3 py-2 rounded-xl text-sm transition-all ${
-                    activeId === s.id
-                      ? 'text-gray-900 font-bold'
-                      : 'text-gray-400 hover:text-gray-700'
-                  }`}
-                >
-                  {s.label}
-                  <span
-                    className="w-2.5 h-2.5 rounded-full flex-shrink-0 border-2 transition-all"
+              {sections.map((s) => {
+                const isActive = activeId === s.id
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => scrollTo(s.id)}
+                    className="w-full text-right flex items-center justify-end gap-2.5 px-3 py-2 rounded-xl text-sm transition-all"
                     style={{
-                      backgroundColor: activeId === s.id ? '#19BAA3' : 'transparent',
-                      borderColor: activeId === s.id ? '#19BAA3' : '#d1d5db',
+                      color: isActive ? s.accent : '#9ca3af',
+                      background: isActive ? s.accentLight : 'transparent',
+                      fontWeight: isActive ? 700 : 400,
                     }}
-                  />
-                </button>
-              ))}
+                  >
+                    {s.label}
+                    <span
+                      className="w-2 h-2 rounded-full flex-shrink-0 transition-all"
+                      style={{
+                        background: isActive ? s.accent : '#d1d5db',
+                        transform: isActive ? 'scale(1.3)' : 'scale(1)',
+                      }}
+                    />
+                  </button>
+                )
+              })}
             </nav>
+
+            {/* Active section CTA */}
+            <div
+              className="mt-6 rounded-2xl p-4 border"
+              style={{ background: activeSec.accentLight, borderColor: activeSec.accentMid }}
+            >
+              <div
+                className="w-8 h-8 rounded-xl flex items-center justify-center mb-2"
+                style={{ background: activeSec.accent }}
+              >
+                <activeSec.Icon size={16} color="white" strokeWidth={2} />
+              </div>
+              <p className="text-xs font-bold text-gray-700 leading-snug mb-3">
+                {activeSec.fullLabel}
+              </p>
+              <a
+                href="https://app.getvom.com/register"
+                className="flex items-center justify-center gap-1 text-white text-xs font-bold py-2 rounded-xl w-full transition-all hover:opacity-90"
+                style={{ background: activeSec.accent }}
+              >
+                جرّب الآن
+                <ChevronLeft size={12} />
+              </a>
+            </div>
           </aside>
 
         </div>
