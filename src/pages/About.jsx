@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ChevronLeft, Target, Eye, Heart, Shield, Users, TrendingUp } from 'lucide-react'
+import { ChevronLeft, Target, Eye, Heart, Shield, Users, TrendingUp, Code2, Calculator, Headphones } from 'lucide-react'
 
 const values = [
   {
@@ -32,9 +32,9 @@ const stats = [
 ]
 
 const team = [
-  { name: 'فريق التطوير', role: 'مهندسون سعوديون', icon: '💻' },
-  { name: 'فريق المحاسبة', role: 'محاسبون معتمدون', icon: '📊' },
-  { name: 'فريق الدعم', role: 'دعم عربي 24/7', icon: '🎧' },
+  { name: 'فريق التطوير', role: 'مهندسون سعوديون', Icon: Code2 },
+  { name: 'فريق المحاسبة', role: 'محاسبون معتمدون', Icon: Calculator },
+  { name: 'فريق الدعم', role: 'دعم عربي 24/7', Icon: Headphones },
 ]
 
 export default function About() {
@@ -154,7 +154,9 @@ export default function About() {
           <div className="grid grid-cols-3 gap-6">
             {team.map((t) => (
               <div key={t.name} className="text-center bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                <div className="text-4xl mb-3">{t.icon}</div>
+                <div className="w-14 h-14 bg-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <t.Icon size={28} className="text-teal" />
+                </div>
                 <p className="font-black text-gray-900 text-sm">{t.name}</p>
                 <p className="text-gray-400 text-xs mt-1">{t.role}</p>
               </div>
@@ -163,8 +165,10 @@ export default function About() {
         </div>
 
         {/* ZATCA badge */}
-        <div className="bg-teal/5 border border-teal/20 rounded-3xl p-8 text-center mb-20">
+        <div className="text-center mb-20">
           <img src="/zatca-badge.svg" alt="هيئة الزكاة والضريبة والجمارك" className="h-20 w-20 mx-auto mb-4" />
+          <p className="font-black text-gray-800 text-base mb-2">هيئة الزكاة والضريبة والجمارك</p>
+          <p className="text-gray-400 text-sm mb-4">Zakat, Tax and Customs Authority</p>
           <p className="text-gray-500 max-w-lg mx-auto text-sm leading-relaxed">
             ڤوم معتمد رسمياً لإصدار الفواتير الإلكترونية وفق متطلبات المرحلتين الأولى والثانية. إقرار ضريبة القيمة المضافة جاهز بنقرة واحدة ومطابق لنموذج زاتكا الرسمي.
           </p>
