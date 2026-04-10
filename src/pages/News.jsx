@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Calendar, Clock, ChevronLeft, ExternalLink } from 'lucide-react'
 
 const news = [
   {
     id: 1,
+    slug: 'shirka-lazywalt',
     category: 'شراكات',
     categoryColor: 'bg-teal/10 text-teal',
     title: 'ڤوم تُعلن عن شراكة استراتيجية مع LazyWalt لتعزيز خدمات المدفوعات',
@@ -16,6 +18,7 @@ const news = [
   },
   {
     id: 2,
+    slug: 'ittilaq-tatbiq-jadid',
     category: 'إطلاق',
     categoryColor: 'bg-orange/10 text-orange',
     title: 'ڤوم تُطلق نسخة جديدة من تطبيق الجوال بواجهة محسّنة ودعم كامل للـ iPad',
@@ -28,6 +31,7 @@ const news = [
   },
   {
     id: 3,
+    slug: 'jaiza-2026',
     category: 'جوائز',
     categoryColor: 'bg-yellow-50 text-yellow-600',
     title: 'ڤوم تفوز بجائزة أفضل حل محاسبي للمنشآت الصغيرة في منتدى تقنية 2026',
@@ -40,6 +44,7 @@ const news = [
   },
   {
     id: 4,
+    slug: 'ietimad-zatca',
     category: 'امتثال',
     categoryColor: 'bg-green-50 text-green-600',
     title: 'ڤوم تحصل على شهادة الاعتماد من هيئة الزكاة والضريبة والجمارك للمرحلة الثانية',
@@ -52,6 +57,7 @@ const news = [
   },
   {
     id: 5,
+    slug: 'tawassu-tajziat',
     category: 'توسع',
     categoryColor: 'bg-purple-50 text-purple-600',
     title: 'ڤوم تتوسع في قطاع التجزئة بإطلاق باقة متخصصة لمحلات السوبرماركت',
@@ -64,6 +70,7 @@ const news = [
   },
   {
     id: 6,
+    slug: 'tamwil-bathari',
     category: 'تمويل',
     categoryColor: 'bg-blue-50 text-blue-600',
     title: 'ڤوم تُغلق جولة تمويل بذري بقيادة مستثمرين من المملكة والإمارات',
@@ -197,7 +204,10 @@ export default function News() {
 
             {/* Featured news */}
             {featured && (
-              <div className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-6 cursor-pointer">
+              <Link
+                to={`/news/${featured.slug}`}
+                className="block bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-6"
+              >
                 <div className={`bg-gradient-to-l ${featured.gradient} h-52 flex items-center justify-center relative`}>
                   <div className="text-7xl opacity-30">{featured.emoji}</div>
                   <span className={`absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full ${featured.categoryColor}`}>
@@ -219,20 +229,21 @@ export default function News() {
                       <span className="flex items-center gap-1"><Calendar size={12} />{featured.date}</span>
                       <span className="flex items-center gap-1"><Clock size={12} />{featured.readTime} قراءة</span>
                     </div>
-                    <button className="flex items-center gap-1 text-teal font-bold text-sm hover:underline">
+                    <span className="flex items-center gap-1 text-teal font-bold text-sm">
                       اقرأ المزيد <ChevronLeft size={14} />
-                    </button>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             )}
 
             {/* News grid */}
             <div className="grid sm:grid-cols-2 gap-5">
               {rest.map((item) => (
-                <div
+                <Link
                   key={item.id}
-                  className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                  to={`/news/${item.slug}`}
+                  className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div className={`bg-gradient-to-l ${item.gradient} h-36 flex items-center justify-center`}>
                     <div className="text-5xl opacity-30">{item.emoji}</div>
@@ -250,7 +261,7 @@ export default function News() {
                       <span className="flex items-center gap-1"><Clock size={11} />{item.readTime}</span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 

@@ -5,6 +5,7 @@ import { Calendar, Clock, ChevronLeft, Camera, Share2, Play, Users } from 'lucid
 const posts = [
   {
     id: 1,
+    slug: 'ikhtiar-barnmaj-mohasaba',
     category: 'محاسبة',
     categoryColor: 'bg-teal/10 text-teal',
     title: 'كيف تختار برنامج محاسبة مناسب لنشاطك التجاري؟',
@@ -16,6 +17,7 @@ const posts = [
   },
   {
     id: 2,
+    slug: 'einvoicing-phase-2',
     category: 'زاتكا',
     categoryColor: 'bg-orange/10 text-orange',
     title: 'الفوترة الإلكترونية المرحلة الثانية: كل ما تحتاج معرفته',
@@ -27,6 +29,7 @@ const posts = [
   },
   {
     id: 3,
+    slug: 'akhta-mohasabiya-mataam',
     category: 'نصائح',
     categoryColor: 'bg-blue-50 text-blue-600',
     title: '٥ أخطاء محاسبية شائعة يقع فيها أصحاب المطاعم',
@@ -38,6 +41,7 @@ const posts = [
   },
   {
     id: 4,
+    slug: 'hesabat-salon-tajmil',
     category: 'قطاعات',
     categoryColor: 'bg-purple-50 text-purple-600',
     title: 'إدارة حسابات صالون التجميل: دليل شامل لعام ٢٠٢٥',
@@ -49,6 +53,7 @@ const posts = [
   },
   {
     id: 5,
+    slug: 'daam-zatca-2500',
     category: 'زاتكا',
     categoryColor: 'bg-orange/10 text-orange',
     title: 'دعم الهيئة للفوترة الإلكترونية: كيف تحصل على ٢٥٠٠ ريال؟',
@@ -60,6 +65,7 @@ const posts = [
   },
   {
     id: 6,
+    slug: 'dakhil-muqawilin',
     category: 'محاسبة',
     categoryColor: 'bg-teal/10 text-teal',
     title: 'قائمة الدخل للمقاولين: كيف تحسب أرباحك الحقيقية؟',
@@ -130,7 +136,10 @@ export default function Blog() {
 
             {/* Featured post */}
             {featured && (
-              <div className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-6">
+              <Link
+                to={`/blog/${featured.slug}`}
+                className="block bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-6"
+              >
                 <div className="bg-gradient-to-l from-teal/10 to-teal/5 h-48 flex items-center justify-center relative">
                   <div className="text-6xl opacity-20">📊</div>
                   <span className={`absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full ${featured.categoryColor}`}>
@@ -143,7 +152,7 @@ export default function Blog() {
                   )}
                 </div>
                 <div className="p-7">
-                  <h2 className="text-xl font-black text-gray-900 mb-3 leading-snug hover:text-teal transition-colors cursor-pointer">
+                  <h2 className="text-xl font-black text-gray-900 mb-3 leading-snug hover:text-teal transition-colors">
                     {featured.title}
                   </h2>
                   <p className="text-gray-500 text-sm leading-relaxed mb-5">{featured.excerpt}</p>
@@ -152,18 +161,22 @@ export default function Blog() {
                       <span className="flex items-center gap-1"><Calendar size={12} />{featured.date}</span>
                       <span className="flex items-center gap-1"><Clock size={12} />{featured.readTime} قراءة</span>
                     </div>
-                    <button className="flex items-center gap-1 text-teal font-bold text-sm hover:underline">
+                    <span className="flex items-center gap-1 text-teal font-bold text-sm">
                       اقرأ المزيد <ChevronLeft size={14} />
-                    </button>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             )}
 
             {/* Post grid */}
             <div className="grid sm:grid-cols-2 gap-5">
               {rest.map((post) => (
-                <div key={post.id} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <Link
+                  key={post.id}
+                  to={`/blog/${post.slug}`}
+                  className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                >
                   <div className="bg-gradient-to-l from-gray-50 to-gray-100 h-32 flex items-center justify-center">
                     <div className="text-4xl opacity-20">📄</div>
                   </div>
@@ -171,7 +184,7 @@ export default function Blog() {
                     <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${post.categoryColor}`}>
                       {post.category}
                     </span>
-                    <h3 className="font-black text-gray-900 text-sm mt-3 mb-2 leading-snug hover:text-teal transition-colors cursor-pointer">
+                    <h3 className="font-black text-gray-900 text-sm mt-3 mb-2 leading-snug hover:text-teal transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-gray-400 text-xs leading-relaxed mb-4 line-clamp-2">{post.excerpt}</p>
@@ -180,7 +193,7 @@ export default function Blog() {
                       <span className="flex items-center gap-1"><Clock size={11} />{post.readTime}</span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 

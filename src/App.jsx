@@ -16,7 +16,9 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Help from './pages/Help'
 import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import News from './pages/News'
+import NewsPost from './pages/NewsPost'
 import AccountingSoftware from './pages/AccountingSoftware'
 import EInvoicing from './pages/EInvoicing'
 import StudentPackage from './pages/StudentPackage'
@@ -44,7 +46,9 @@ export default function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/help" element={<Help />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/news" element={<News />} />
+            <Route path="/news/:slug" element={<NewsPost />} />
             <Route path="/accounting-software" element={<AccountingSoftware />} />
             <Route path="/einvoicing" element={<EInvoicing />} />
             <Route path="/student" element={<StudentPackage />} />
