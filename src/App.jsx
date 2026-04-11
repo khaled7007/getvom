@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -26,19 +26,26 @@ const EInvoicing = lazy(() => import('./pages/EInvoicing'))
 const StudentPackage = lazy(() => import('./pages/StudentPackage'))
 const ApiPage = lazy(() => import('./pages/ApiPage'))
 const SalesInvoices = lazy(() => import('./pages/SalesInvoices'))
+const Register = lazy(() => import('./pages/Register'))
+const Login = lazy(() => import('./pages/Login'))
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
-export default function App() {
+const AUTH_ROUTES = ['/login', '/register', '/forgot-password']
+
+function AppInner() {
+  const location = useLocation()
+  const isAuth = AUTH_ROUTES.includes(location.pathname)
+
   return (
-    <BrowserRouter>
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-1">
-          <Suspense fallback={
-            <div className="min-h-screen flex items-center justify-center">
-              <div className="w-10 h-10 border-4 border-teal border-t-transparent rounded-full animate-spin" />
-            </div>
-          }>
+    <div className="flex flex-col min-h-screen">
+      {!isAuth && <Navbar />}
+      <main className="flex-1">
+        <Suspense fallback={
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="w-10 h-10 border-4 border-teal border-t-transparent rounded-full animate-spin" />
+          </div>
+        }>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/sectors" element={<Sectors />} />
@@ -62,13 +69,23 @@ export default function App() {
             <Route path="/student" element={<StudentPackage />} />
             <Route path="/api" element={<ApiPage />} />
             <Route path="/invoices" element={<SalesInvoices />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-        <ContactWidget />
-      </div>
+        </Suspense>
+      </main>
+      {!isAuth && <Footer />}
+      {!isAuth && <ContactWidget />}
+    </div>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppInner />
     </BrowserRouter>
   )
 }
