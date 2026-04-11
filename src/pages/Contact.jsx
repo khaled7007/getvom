@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Phone, Mail, MessageCircle, Clock, CheckCircle2, Send, MapPin } from 'lucide-react'
 
 const channels = [
@@ -42,6 +42,7 @@ const faqs = [
 ]
 
 export default function Contact() {
+  useEffect(() => { document.title = 'تواصل معنا — ڤوم' }, [])
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
   const [errors, setErrors] = useState({})
   const [sent, setSent] = useState(false)

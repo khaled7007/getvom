@@ -13,7 +13,10 @@ const partnerColors = {
 export default function AppPage() {
   const { slug } = useParams()
   const app = getAppBySlug(slug)
-  useEffect(() => { window.scrollTo(0, 0) }, [slug])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    if (app) document.title = `ڤوم و ${app.name} — تكامل محاسبي مباشر`
+  }, [slug, app])
 
   if (!app) {
     return (

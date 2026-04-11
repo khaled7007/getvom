@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Shield, Lock, Eye, Database, UserCheck, RefreshCw } from 'lucide-react'
 
 const sections = [
@@ -57,6 +58,7 @@ const sections = [
 ]
 
 export default function Privacy() {
+  useEffect(() => { document.title = 'سياسة الخصوصية — ڤوم' }, [])
   return (
     <div className="min-h-screen">
 

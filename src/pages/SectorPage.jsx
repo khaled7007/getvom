@@ -8,7 +8,10 @@ export default function SectorPage() {
   const { slug } = useParams()
   const sector = getSectorBySlug(slug)
 
-  useEffect(() => { window.scrollTo(0, 0) }, [slug])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    if (sector) document.title = `ڤوم لـ ${sector.name} — محاسبة ذكية مخصصة لقطاعك`
+  }, [slug, sector])
 
   if (!sector) {
     return (

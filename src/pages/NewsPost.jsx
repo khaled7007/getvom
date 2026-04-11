@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { Calendar, Clock, ArrowRight, ChevronLeft } from 'lucide-react'
 
@@ -243,6 +244,10 @@ const newsItems = [
 export default function NewsPost() {
   const { slug } = useParams()
   const item = newsItems.find((n) => n.slug === slug)
+
+  useEffect(() => {
+    if (item) document.title = `${item.title} — أخبار ڤوم`
+  }, [item])
 
   if (!item) return <Navigate to="/news" replace />
 

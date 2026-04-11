@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Search, BookOpen, CreditCard, Settings, Plug, FileText,
@@ -114,6 +114,7 @@ const faqs = [
 ]
 
 export default function Help() {
+  useEffect(() => { document.title = 'مركز المساعدة — الأسئلة الشائعة | ڤوم' }, [])
   const [search, setSearch] = useState('')
   const [openIndex, setOpenIndex] = useState(null)
 

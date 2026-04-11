@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { CheckCircle2, ChevronLeft, X } from 'lucide-react'
 
 const plans = [
@@ -64,6 +64,7 @@ const plans = [
 ]
 
 export default function Pricing() {
+  useEffect(() => { document.title = 'الأسعار — ڤوم | ابدأ مجاناً 30 يوماً' }, [])
   const [annual, setAnnual] = useState(false)
 
   return (

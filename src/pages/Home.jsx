@@ -666,6 +666,9 @@ function CTASection() {
    PAGE
    ======================================== */
 export default function Home() {
+  useEffect(() => {
+    document.title = 'ڤوم — برنامج محاسبة ذكي لأصحاب الأعمال في السعودية'
+  }, [])
   return (
     <>
       <Hero />

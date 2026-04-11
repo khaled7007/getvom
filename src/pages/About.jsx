@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronLeft, Target, Eye, Heart, Shield, Users, TrendingUp, Code2, Calculator, Headphones } from 'lucide-react'
 
@@ -38,6 +39,7 @@ const team = [
 ]
 
 export default function About() {
+  useEffect(() => { document.title = 'عن ڤوم — قصتنا ورؤيتنا' }, [])
   return (
     <div className="min-h-screen">
 

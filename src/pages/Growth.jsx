@@ -108,7 +108,7 @@ function PartnersCarousel() {
    PAGE
    ======================================== */
 export default function Growth() {
-  useEffect(() => { window.scrollTo(0, 0) }, [])
+  useEffect(() => { window.scrollTo(0, 0); document.title = 'برنامج نمو — ڤوم | اشترك بدون رسوم مع مساعدة حكومية' }, [])
 
   return (
     <div className="min-h-screen">

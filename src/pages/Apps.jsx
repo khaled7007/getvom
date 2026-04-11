@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { apps } from '../data/apps'
 import { ChevronLeft, Plug, CheckCircle2, ArrowLeft } from 'lucide-react'
@@ -10,6 +11,7 @@ const partnerColors = {
 }
 
 export default function Apps() {
+  useEffect(() => { document.title = 'سوق التطبيقات — ڤوم | تكامل مع Foodics وZid وغيرها' }, [])
   return (
     <div className="min-h-screen">
 

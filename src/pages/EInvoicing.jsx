@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CheckCircle2, ChevronLeft, FileText, Shield, Zap, Clock, Building2, AlertCircle } from 'lucide-react'
 
@@ -39,6 +40,7 @@ const subsidy = [
 ]
 
 export default function EInvoicing() {
+  useEffect(() => { document.title = 'الفوترة الإلكترونية زاتكا — ڤوم | امتثال كامل للمرحلتين' }, [])
   return (
     <div className="min-h-screen">
 

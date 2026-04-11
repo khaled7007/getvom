@@ -239,6 +239,8 @@ function SectionMockup({ accent, accentLight, accentMid }) {
 export default function Features() {
   const [activeId, setActiveId] = useState(sections[0].id)
 
+  useEffect(() => { document.title = 'مميزات ڤوم — محاسبة ذكية لكل قطاع' }, [])
+
   useEffect(() => {
     const onScroll = () => {
       let best = sections[0].id

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CheckCircle2, ChevronLeft, GraduationCap, BookOpen, Users, Award, X } from 'lucide-react'
 
@@ -26,6 +27,7 @@ const universities = [
 ]
 
 export default function StudentPackage() {
+  useEffect(() => { document.title = 'باقة الطلاب — ڤوم مجاناً لطلاب الجامعات' }, [])
   return (
     <div className="min-h-screen">
 

@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { sectors } from '../data/sectors'
 import { ChevronLeft, Search } from 'lucide-react'
 import SectorIcon from '../components/SectorIcon'
 
 export default function Sectors() {
+  useEffect(() => { document.title = 'القطاعات — ڤوم | 23 قطاع مدعوم' }, [])
   const [query, setQuery] = useState('')
   const filtered = sectors.filter((s) =>
     s.name.includes(query) || s.hook.includes(query)

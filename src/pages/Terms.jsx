@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { FileText, AlertCircle, CreditCard, ShieldOff, Scale, Phone } from 'lucide-react'
 
 const sections = [
@@ -57,6 +58,7 @@ const sections = [
 ]
 
 export default function Terms() {
+  useEffect(() => { document.title = 'الشروط والأحكام — ڤوم' }, [])
   return (
     <div className="min-h-screen">
 

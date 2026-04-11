@@ -1,29 +1,31 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ContactWidget from './components/ContactWidget'
-import Home from './pages/Home'
-import Sectors from './pages/Sectors'
-import SectorPage from './pages/SectorPage'
-import Features from './pages/Features'
-import Pricing from './pages/Pricing'
-import About from './pages/About'
-import Apps from './pages/Apps'
-import AppPage from './pages/AppPage'
-import Growth from './pages/Growth'
-import Contact from './pages/Contact'
-import Privacy from './pages/Privacy'
-import Terms from './pages/Terms'
-import Help from './pages/Help'
-import Blog from './pages/Blog'
-import BlogPost from './pages/BlogPost'
-import News from './pages/News'
-import NewsPost from './pages/NewsPost'
-import AccountingSoftware from './pages/AccountingSoftware'
-import EInvoicing from './pages/EInvoicing'
-import StudentPackage from './pages/StudentPackage'
-import ApiPage from './pages/ApiPage'
-import NotFound from './pages/NotFound'
+
+const Home = lazy(() => import('./pages/Home'))
+const Sectors = lazy(() => import('./pages/Sectors'))
+const SectorPage = lazy(() => import('./pages/SectorPage'))
+const Features = lazy(() => import('./pages/Features'))
+const Pricing = lazy(() => import('./pages/Pricing'))
+const About = lazy(() => import('./pages/About'))
+const Apps = lazy(() => import('./pages/Apps'))
+const AppPage = lazy(() => import('./pages/AppPage'))
+const Growth = lazy(() => import('./pages/Growth'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Privacy = lazy(() => import('./pages/Privacy'))
+const Terms = lazy(() => import('./pages/Terms'))
+const Help = lazy(() => import('./pages/Help'))
+const Blog = lazy(() => import('./pages/Blog'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
+const News = lazy(() => import('./pages/News'))
+const NewsPost = lazy(() => import('./pages/NewsPost'))
+const AccountingSoftware = lazy(() => import('./pages/AccountingSoftware'))
+const EInvoicing = lazy(() => import('./pages/EInvoicing'))
+const StudentPackage = lazy(() => import('./pages/StudentPackage'))
+const ApiPage = lazy(() => import('./pages/ApiPage'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
   return (
@@ -31,6 +33,11 @@ export default function App() {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-1">
+          <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center">
+              <div className="w-10 h-10 border-4 border-teal border-t-transparent rounded-full animate-spin" />
+            </div>
+          }>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/sectors" element={<Sectors />} />
@@ -55,6 +62,7 @@ export default function App() {
             <Route path="/api" element={<ApiPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
         </main>
         <Footer />
         <ContactWidget />

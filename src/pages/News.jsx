@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Calendar, Clock, ChevronLeft, ExternalLink } from 'lucide-react'
 
@@ -149,6 +149,7 @@ const socialLinks = [
 const categories = ['الكل', 'شراكات', 'إطلاق', 'جوائز', 'امتثال', 'توسع', 'تمويل']
 
 export default function News() {
+  useEffect(() => { document.title = 'أخبار ڤوم — آخر المستجدات والإعلانات' }, [])
   const [activeCategory, setActiveCategory] = useState('الكل')
 
   const filtered = activeCategory === 'الكل'

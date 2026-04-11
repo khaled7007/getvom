@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { Calendar, Clock, ChevronLeft, ArrowRight } from 'lucide-react'
 
@@ -339,6 +340,10 @@ export function getAllBlogPosts() {
 export default function BlogPost() {
   const { slug } = useParams()
   const post = posts.find((p) => p.slug === slug)
+
+  useEffect(() => {
+    if (post) document.title = `${post.title} — مدونة ڤوم`
+  }, [post])
 
   if (!post) return <Navigate to="/blog" replace />
 

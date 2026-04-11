@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Calendar, Clock, ChevronLeft, Camera, Share2, Play, Users } from 'lucide-react'
 
@@ -87,6 +87,7 @@ const social = [
 const categories = ['الكل', 'محاسبة', 'زاتكا', 'نصائح', 'قطاعات']
 
 export default function Blog() {
+  useEffect(() => { document.title = 'المدونة — ڤوم | نصائح محاسبية وأخبار الأعمال' }, [])
   const [activeCategory, setActiveCategory] = useState('الكل')
 
   const filtered = activeCategory === 'الكل'

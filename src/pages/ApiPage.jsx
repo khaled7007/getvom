@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CheckCircle2, ChevronLeft, Code2, Zap, Lock, BookOpen, Terminal } from 'lucide-react'
 
@@ -47,6 +48,7 @@ const invoice = await response.json()
 console.log(invoice.id) // inv_abc456`
 
 export default function ApiPage() {
+  useEffect(() => { document.title = 'API ڤوم — ربط أنظمتك بمحاسبتك' }, [])
   return (
     <div className="min-h-screen">
 

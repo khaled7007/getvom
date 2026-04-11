@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CheckCircle2, ChevronLeft, X, ChevronDown } from 'lucide-react'
 
@@ -92,6 +92,7 @@ const faqs = [
 ]
 
 export default function AccountingSoftware() {
+  useEffect(() => { document.title = 'برنامج المحاسبة السحابي — دليل شامل 2025 | ڤوم' }, [])
   const [openFaq, setOpenFaq] = useState(null)
 
   return (
