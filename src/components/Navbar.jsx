@@ -123,18 +123,18 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <a
-            href="https://app.getvom.com"
+          <Link
+            to="/login"
             className="text-sm font-semibold text-teal bg-teal/10 hover:bg-teal/20 px-4 py-2 rounded-lg transition-all"
           >
             تسجيل الدخول
-          </a>
-          <a
-            href="https://app.getvom.com/register"
+          </Link>
+          <Link
+            to="/register"
             className="text-sm font-bold text-white bg-orange hover:bg-orange-dark px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-orange/30"
           >
             جرّب مجاناً
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -193,12 +193,18 @@ export default function Navbar() {
             )}
 
             <div className="pt-2 border-t border-gray-100 flex flex-col gap-2">
-              <a
-                href="https://app.getvom.com/register"
+              <Link
+                to="/login"
+                className="text-center text-sm font-semibold text-teal bg-teal/10 px-5 py-3 rounded-xl"
+              >
+                تسجيل الدخول
+              </Link>
+              <Link
+                to="/register"
                 className="text-center text-sm font-bold text-white bg-orange px-5 py-3 rounded-xl"
               >
                 جرّب مجاناً، 30 يوم
-              </a>
+              </Link>
             </div>
           </div>
         </div>
