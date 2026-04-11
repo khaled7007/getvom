@@ -119,19 +119,6 @@ function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left، copy */}
           <div>
-            {/* ZATCA badge */}
-            <div className="inline-flex items-center gap-4 mb-6">
-              <img src="/zatca-badge.svg" alt="هيئة الزكاة والضريبة والجمارك" className="h-14 w-14 brightness-0 invert" />
-              <div>
-                <p className="text-white font-bold text-sm leading-snug">هيئة الزكاة والضريبة والجمارك</p>
-                <p className="text-white/80 text-xs leading-snug">Zakat, Tax and Customs Authority</p>
-                <div className="flex items-center gap-1 mt-1">
-                  <span className="w-4 h-4 bg-teal rounded-full flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">✓</span>
-                  <p className="text-white/90 text-xs font-semibold">المرحلة الثانية للفوترة الإلكترونية</p>
-                </div>
-              </div>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
               تحكم في مصاريفك،{' '}
               <span className="text-orange-light">اعرف أرباحك</span>{' '}
@@ -168,6 +155,19 @@ function Hero() {
                 ابحث عن قطاعك
                 <ArrowLeft size={18} />
               </Link>
+            </div>
+
+            {/* ZATCA badge */}
+            <div className="inline-flex items-center gap-3 mt-6 bg-white/10 border border-white/20 rounded-2xl px-4 py-3 backdrop-blur-sm">
+              <img src="/zatca-badge.svg" alt="هيئة الزكاة والضريبة والجمارك" className="h-10 w-10 brightness-0 invert flex-shrink-0" />
+              <div>
+                <p className="text-white font-bold text-xs leading-snug">هيئة الزكاة والضريبة والجمارك</p>
+                <p className="text-white/70 text-[10px] leading-snug">Zakat, Tax and Customs Authority</p>
+                <div className="flex items-center gap-1 mt-0.5">
+                  <span className="w-3.5 h-3.5 bg-teal rounded-full flex items-center justify-center text-white font-black text-[8px] flex-shrink-0">✓</span>
+                  <p className="text-white/90 text-[10px] font-semibold">متوافق مع المرحلة الثانية للفوترة الإلكترونية</p>
+                </div>
+              </div>
             </div>
           </div>
 
