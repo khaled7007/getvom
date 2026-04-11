@@ -169,24 +169,6 @@ function Hero() {
                 <ArrowLeft size={18} />
               </Link>
             </div>
-
-            {/* Social proof */}
-            <div className="flex items-center gap-6 mt-8 pt-8 border-t border-white/20">
-              <div className="text-center">
-                <div className="text-2xl font-black text-white">+4,000</div>
-                <div className="text-white/60 text-xs">مستخدم نشط</div>
-              </div>
-              <div className="w-px h-10 bg-white/20" />
-              <div className="text-center">
-                <div className="text-2xl font-black text-white">23</div>
-                <div className="text-white/60 text-xs">قطاع مدعوم</div>
-              </div>
-              <div className="w-px h-10 bg-white/20" />
-              <div className="text-center">
-                <div className="text-2xl font-black text-white">30</div>
-                <div className="text-white/60 text-xs">يوم مجاناً</div>
-              </div>
-            </div>
           </div>
 
           {/* Right، dashboard card */}
