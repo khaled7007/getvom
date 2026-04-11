@@ -196,12 +196,12 @@ export default function Login() {
               <div className="flex-1 h-px bg-gray-200" />
             </div>
 
-            <a
-              href="https://app.getvom.com/register"
+            <Link
+              to="/register"
               className="w-full block text-center bg-orange/10 hover:bg-orange/20 text-orange font-bold py-3 rounded-xl transition-all text-sm"
             >
               إنشاء حساب جديد مجاناً
-            </a>
+            </Link>
           </form>
         </div>
       </div>

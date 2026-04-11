@@ -224,12 +224,12 @@ export default function Blog() {
             <div className="hero-gradient rounded-2xl p-5 text-center">
               <p className="text-white font-black text-sm mb-2">جرّب ڤوم مجاناً</p>
               <p className="text-white/60 text-xs mb-4">٣٠ يوم بدون بطاقة</p>
-              <a
-                href="https://app.getvom.com/register"
+              <Link
+                to="/register"
                 className="block bg-orange hover:bg-orange-dark text-white font-bold text-sm py-2.5 rounded-xl transition-all"
               >
                 ابدأ الآن
-              </a>
+              </Link>
             </div>
 
             {/* Categories */}

@@ -97,13 +97,13 @@ export default function Sectors() {
           <p className="text-gray-500 mb-6">
             ڤوم يدعم أي نشاط تجاري في السعودية، تواصل معنا وسنضيف قطاعك
           </p>
-          <a
-            href="https://app.getvom.com/register"
+          <Link
+            to="/register"
             className="inline-flex items-center gap-2 bg-orange text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-orange/30 hover:bg-orange-dark transition-all"
           >
             ابدأ تجربتك المجانية
             <ChevronLeft size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

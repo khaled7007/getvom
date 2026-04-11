@@ -154,13 +154,13 @@ export default function Apps() {
           <p className="text-white/70 mb-8">
             ڤوم يعمل مستقلاً أيضاً، وقريباً نضيف تكاملات أكثر
           </p>
-          <a
-            href="https://app.getvom.com/register"
+          <Link
+            to="/register"
             className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black text-lg px-8 py-4 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
           >
             ابدأ تجربتك المجانية
             <ChevronLeft size={20} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

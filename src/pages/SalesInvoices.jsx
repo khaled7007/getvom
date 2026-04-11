@@ -365,13 +365,13 @@ function TemplateCard({ tmpl }) {
             <Download size={13} />
             تحميل
           </a>
-          <a
-            href="https://app.getvom.com/register"
+          <Link
+            to="/register"
             className="flex items-center gap-1.5 flex-1 justify-center text-xs font-bold text-white bg-teal hover:opacity-90 py-2 rounded-xl transition-all"
           >
             إنشاء الآن
             <ChevronLeft size={13} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -439,20 +439,20 @@ export default function SalesInvoices() {
                     <span className="font-bold text-orange-light">تنويه: </span>
                     هذه القوالب لا تدعم الفوترة الإلكترونية. إذا كنت تبحث عن فواتير إلكترونية معتمدة من زاتكا،
                     {' '}
-                    <a href="https://app.getvom.com/register" className="text-white font-bold underline underline-offset-2 hover:text-orange-light transition-colors">
+                    <Link to="/register" className="text-white font-bold underline underline-offset-2 hover:text-orange-light transition-colors">
                       يمكنك تجربة النظام هنا مجاناً
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-3 flex-wrap">
-                <a
-                  href="https://app.getvom.com/register"
+                <Link
+                  to="/register"
                   className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black px-7 py-3.5 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
                 >
                   جرّب الآن مجاناً <ChevronLeft size={18} />
-                </a>
+                </Link>
                 <a
                   href="#templates"
                   className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-6 py-3.5 rounded-2xl transition-all"
@@ -520,12 +520,12 @@ export default function SalesInvoices() {
                 أصدر فواتير إلكترونية متوافقة مع زاتكا مباشرة من ڤوم — بدون قوالب يدوية
               </p>
             </div>
-            <a
-              href="https://app.getvom.com/register"
+            <Link
+              to="/register"
               className="w-full text-center text-sm font-bold text-white bg-teal hover:opacity-90 py-2.5 rounded-xl transition-all"
             >
               ابدأ مجاناً 30 يوم
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -569,12 +569,12 @@ export default function SalesInvoices() {
             <br className="hidden sm:block" />
             يرفعها لزاتكا، ويسجّلها محاسبياً — كل ذلك في نقرة واحدة
           </p>
-          <a
-            href="https://app.getvom.com/register"
+          <Link
+            to="/register"
             className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black px-10 py-4 rounded-2xl shadow-2xl shadow-orange/40 transition-all hover:scale-105"
           >
             جرّب ڤوم مجاناً 30 يوم <ChevronLeft size={20} />
-          </a>
+          </Link>
         </div>
       </div>
 

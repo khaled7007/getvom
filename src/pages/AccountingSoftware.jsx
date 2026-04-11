@@ -113,12 +113,12 @@ export default function AccountingSoftware() {
           <p className="text-white/70 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
             السوق مزدحم بأكثر من 20 برنامجاً. هذا الدليل يأخذك خطوة بخطوة لتختار البرنامج الذي يحميك من مخالفات زاتكا، ويختصر وقتك، ويعطيك رؤية واضحة لأرقامك.
           </p>
-          <a
-            href="https://app.getvom.com/register"
+          <Link
+            to="/register"
             className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black px-8 py-4 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
           >
             جرّب ڤوم مجاناً 30 يوم <ChevronLeft size={20} />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -319,12 +319,12 @@ export default function AccountingSoftware() {
                     </div>
                   ))}
                 </div>
-                <a
-                  href="https://app.getvom.com/register"
+                <Link
+                  to="/register"
                   className="inline-flex items-center gap-2 mt-6 bg-orange hover:bg-orange-dark text-white font-black px-6 py-3 rounded-xl shadow-lg shadow-orange/30 transition-all hover:scale-105 text-sm"
                 >
                   ابدأ تجربتك المجانية الآن <ChevronLeft size={16} />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -409,12 +409,12 @@ export default function AccountingSoftware() {
                 <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-xl mx-auto">
                   ڤوم يبسّط لك الفوترة الإلكترونية، ويمنحك تقارير جاهزة للعرض أمام الهيئة، ويبدأ معك من لحظة التسجيل بدون تعقيد.
                 </p>
-                <a
-                  href="https://app.getvom.com/register"
+                <Link
+                  to="/register"
                   className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black px-10 py-4 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
                 >
                   ابدأ تجربتك المجانية الآن <ChevronLeft size={20} />
-                </a>
+                </Link>
                 <p className="text-white/40 text-xs mt-4">30 يوماً مجاناً — بدون بطاقة بنكية</p>
               </div>
             </div>

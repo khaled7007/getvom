@@ -47,12 +47,12 @@ export default function StudentPackage() {
           <p className="text-white/70 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
             طالب محاسبة أو إدارة أعمال؟ ڤوم يمنحك وصولاً كاملاً للمنصة مجاناً طوال دراستك — تعلّم على أداة احترافية حقيقية.
           </p>
-          <a
-            href="https://app.getvom.com/register?plan=student"
+          <Link
+            to="/register"
             className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black px-8 py-4 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
           >
             سجّل كطالب الآن <ChevronLeft size={20} />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -93,12 +93,12 @@ export default function StudentPackage() {
               </div>
             </div>
 
-            <a
-              href="https://app.getvom.com/register?plan=student"
+            <Link
+              to="/register"
               className="block bg-teal hover:bg-teal-dark text-white font-black py-4 rounded-2xl transition-all hover:scale-105 shadow-lg shadow-teal/30"
             >
               سجّل الآن مجاناً
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -142,12 +142,12 @@ export default function StudentPackage() {
             <Award size={40} className="text-orange-light mx-auto mb-4" />
             <h2 className="text-2xl font-black text-white mb-3">ابدأ مسيرتك المحاسبية اليوم</h2>
             <p className="text-white/70 mb-6">الأدوات الاحترافية بين يديك — مجاناً</p>
-            <a
-              href="https://app.getvom.com/register?plan=student"
+            <Link
+              to="/register"
               className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black px-10 py-4 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
             >
               سجّل كطالب <ChevronLeft size={20} />
-            </a>
+            </Link>
           </div>
         </div>
 

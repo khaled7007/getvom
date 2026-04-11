@@ -170,12 +170,12 @@ export default function ApiPage() {
           <div className="relative">
             <h2 className="text-2xl font-black text-white mb-3">جاهز تبدأ التكامل؟</h2>
             <p className="text-white/70 mb-6">API Key جاهز فور تفعيل حسابك</p>
-            <a
-              href="https://app.getvom.com/register"
+            <Link
+              to="/register"
               className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black px-10 py-4 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
             >
               احصل على API Key <ChevronLeft size={20} />
-            </a>
+            </Link>
           </div>
         </div>
 

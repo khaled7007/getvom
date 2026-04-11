@@ -87,13 +87,13 @@ export default function SectorPage() {
                 {sector.painPoint}
               </p>
 
-              <a
-                href="https://app.getvom.com/register"
+              <Link
+                to="/register"
                 className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black text-lg px-8 py-4 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
               >
                 {sector.cta}
                 <ChevronLeft size={20} />
-              </a>
+              </Link>
             </div>
 
           </div>
@@ -204,13 +204,13 @@ export default function SectorPage() {
             <p className="text-white/70 text-lg mb-8">
               30 يوم مجاناً، بدون بطاقة ائتمان
             </p>
-            <a
-              href="https://app.getvom.com/register"
+            <Link
+              to="/register"
               className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black text-xl px-10 py-5 rounded-2xl shadow-2xl shadow-orange/40 transition-all hover:scale-105"
             >
               {sector.cta}
               <ChevronLeft size={24} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

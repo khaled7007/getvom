@@ -408,12 +408,12 @@ export default function BlogPost() {
           <div className="relative">
             <h3 className="text-xl font-black text-white mb-2">جرّب ڤوم مجاناً ٣٠ يوماً</h3>
             <p className="text-white/70 text-sm mb-5">بدون بطاقة ائتمان، بدون التزام</p>
-            <a
-              href="https://app.getvom.com/register"
+            <Link
+              to="/register"
               className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black px-8 py-3.5 rounded-xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
             >
               ابدأ الآن <ChevronLeft size={18} />
-            </a>
+            </Link>
           </div>
         </div>
 

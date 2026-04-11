@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Phone, Mail, MessageCircle, Clock, CheckCircle2, Send, MapPin } from 'lucide-react'
 
@@ -245,12 +246,12 @@ export default function Contact() {
         <div className="relative max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl font-black text-white mb-3">جرّب ڤوم مجاناً لمدة 30 يوم</h2>
           <p className="text-white/70 mb-6">بدون بطاقة ائتمان، بدون التزام</p>
-          <a
-            href="https://app.getvom.com/register"
+          <Link
+            to="/register"
             className="inline-block bg-orange hover:bg-orange-dark text-white font-black px-8 py-4 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
           >
             ابدأ تجربتك المجانية
-          </a>
+          </Link>
         </div>
       </div>
     </div>

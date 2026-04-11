@@ -462,14 +462,14 @@ export default function Features() {
               <p className="text-xs font-bold text-gray-700 leading-snug mb-3">
                 {activeSec.fullLabel}
               </p>
-              <a
-                href="https://app.getvom.com/register"
+              <Link
+                to="/register"
                 className="flex items-center justify-center gap-1 text-white text-xs font-bold py-2 rounded-xl w-full transition-all hover:opacity-90"
                 style={{ background: activeSec.accent }}
               >
                 جرّب الآن
                 <ChevronLeft size={12} />
-              </a>
+              </Link>
             </div>
           </aside>
 
@@ -481,13 +481,13 @@ export default function Features() {
         <div className="max-w-2xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-white mb-4">جاهز تجرب كل هذه المميزات؟</h2>
           <p className="text-white/70 mb-8 text-lg">٣٠ يوم مجاناً، بدون بطاقة ائتمان</p>
-          <a
-            href="https://app.getvom.com/register"
+          <Link
+            to="/register"
             className="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-black text-xl px-10 py-5 rounded-2xl shadow-2xl transition-all hover:scale-105"
           >
             ابدأ تجربتك المجانية
             <ChevronLeft size={24} />
-          </a>
+          </Link>
         </div>
       </div>
 

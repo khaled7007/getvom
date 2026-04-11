@@ -165,13 +165,13 @@ export default function Growth() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="https://app.getvom.com/register"
+                <Link
+                  to="/register"
                   className="inline-flex items-center justify-center gap-2 bg-orange hover:bg-orange-dark text-white font-black text-lg px-8 py-4 rounded-2xl shadow-xl shadow-orange/40 transition-all hover:scale-105"
                 >
                   سجل الآن
                   <ChevronLeft size={20} />
-                </a>
+                </Link>
                 <Link
                   to="/pricing"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-4 rounded-2xl transition-all"
@@ -318,13 +318,13 @@ export default function Growth() {
             تريد أن تصبح شريكاً؟
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://app.getvom.com/register"
+            <Link
+              to="/register"
               className="inline-flex items-center justify-center gap-2 bg-orange hover:bg-orange-dark text-white font-black text-xl px-10 py-5 rounded-2xl shadow-2xl shadow-orange/40 transition-all hover:scale-105"
             >
               قدّم طلبك هنا
               <ChevronLeft size={24} />
-            </a>
+            </Link>
             <Link
               to="/about"
               className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-5 rounded-2xl transition-all"
