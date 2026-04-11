@@ -25,6 +25,7 @@ const AccountingSoftware = lazy(() => import('./pages/AccountingSoftware'))
 const EInvoicing = lazy(() => import('./pages/EInvoicing'))
 const StudentPackage = lazy(() => import('./pages/StudentPackage'))
 const ApiPage = lazy(() => import('./pages/ApiPage'))
+const SalesInvoices = lazy(() => import('./pages/SalesInvoices'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -60,6 +61,7 @@ export default function App() {
             <Route path="/einvoicing" element={<EInvoicing />} />
             <Route path="/student" element={<StudentPackage />} />
             <Route path="/api" element={<ApiPage />} />
+            <Route path="/invoices" element={<SalesInvoices />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           </Suspense>
